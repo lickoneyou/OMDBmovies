@@ -5,11 +5,18 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  mounted() {
+    this.fetchMovies();
+  },
+  methods: {
+    ...mapActions("movies", ["fetchMovies"]),
   },
 };
 </script>
