@@ -23,6 +23,9 @@ const moviesStore = {
     },
   },
   getters: {
+    moviesList({ movies }) {
+      return movies;
+    },
     slicedIDs({ top250IDs }) {
       return (from, to) => top250IDs.slice(from, to);
     },
