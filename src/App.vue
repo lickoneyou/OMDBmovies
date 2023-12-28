@@ -12,9 +12,6 @@ export default {
   components: {
     HelloWorld,
   },
-  mounted() {
-    this.fetchMovies();
-  },
   methods: {
     ...mapActions("movies", ["fetchMovies"]),
   },
