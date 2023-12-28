@@ -16,11 +16,7 @@ const moviesStore = {
     top250IDs: IDs,
     moviesPerPage: 12,
     currentPage: 1,
-    movies: {
-      [MOVIES](state, value) {
-        state.movies = value;
-      },
-    },
+    movies: {},
   },
   getters: {
     moviesList({ movies }) {
@@ -36,7 +32,11 @@ const moviesStore = {
       return moviesPerPage;
     },
   },
-  mutations: {},
+  mutations: {
+    [MOVIES](state, value) {
+      state.movies = value;
+    },
+  },
   actions: {
     initMoviesStore: {
       handler({ dispatch }) {
