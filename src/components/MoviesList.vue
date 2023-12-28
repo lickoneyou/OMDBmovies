@@ -3,13 +3,17 @@
     <h3 class="listTitle">IMDB Top 250</h3>
     <div class="row">
       <template v-if="isExist">
-        <div class="col-3" v-for="(movie, key) in list" :key="key"></div>
+        <div class="col-3" v-for="(movie, key) in list" :key="key">
+          <movie-item :movie="movie" />
+        </div>
       </template>
     </div>
   </div>
 </template>
 
 <script>
+import MovieItem from "./MovieItem.vue";
+
 export default {
   name: "MoviesList",
   props: {
@@ -19,6 +23,9 @@ export default {
         return {};
       },
     },
+  },
+  components: {
+    MovieItem,
   },
   computed: {
     isExist() {
