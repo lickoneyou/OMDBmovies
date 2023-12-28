@@ -7,6 +7,9 @@
           <movie-item :movie="movie" />
         </div>
       </template>
+      <template v-else>
+        <div>Empty list</div>
+      </template>
     </div>
   </div>
 </template>
