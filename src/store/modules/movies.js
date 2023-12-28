@@ -54,7 +54,7 @@ const moviesStore = {
         const res = await Promise.all(requests);
         const data = res.map((el) => el.data);
         const movies = serializeResponse(data);
-        commit(MOVIES, movies, { root: true });
+        commit(MOVIES, movies);
       } catch (error) {
         console.log(error);
       }
