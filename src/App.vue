@@ -2,12 +2,14 @@
   <div id="app">
     <PosterBG :poster="posterBG" />
     <movies-list :list="moviesList" @changePoster="onChangePoster" />
+    <MoviesPagination :total="moviesLength" @changePage="onChangePage" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 import MoviesList from "./components/MoviesList.vue";
+import MoviesPagination from "./components/MoviesPagination.vue";
 import PosterBG from "./components/PosterBG.vue";
 
 export default {
@@ -15,6 +17,7 @@ export default {
   components: {
     MoviesList,
     PosterBG,
+    MoviesPagination,
   },
   data() {
     return {
@@ -22,12 +25,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("movies", ["moviesList"]),
+    ...mapGetters("movies", ["moviesList", "moviesLength"]),
   },
   methods: {
-    ...mapActions("movies", ["fetchMovies"]),
+    ...mapActions("movies", ["changeCurrentPage"]),
     onChangePoster(poster) {
       this.posterBG = poster;
+    },
+    onChangePage(page) {
+      this.changeCurrentPage(page);
     },
   },
 };

@@ -8,7 +8,7 @@ const serializeResponse = (movies) =>
     return acc;
   }, {});
 
-const { MOVIES } = mutation;
+const { MOVIES, CURRENT_PAGE } = mutation;
 
 const moviesStore = {
   namespaced: true,
@@ -31,10 +31,16 @@ const moviesStore = {
     moviesPerPage({ moviesPerPage }) {
       return moviesPerPage;
     },
+    moviesLength({ top250IDs }) {
+      return Object.keys(top250IDs).length;
+    },
   },
   mutations: {
     [MOVIES](state, value) {
       state.movies = value;
+    },
+    [CURRENT_PAGE](state, value) {
+      state.currentPage = value;
     },
   },
   actions: {
@@ -58,6 +64,10 @@ const moviesStore = {
       } catch (error) {
         console.log(error);
       }
+    },
+    changeCurrentPage({ commit, dispatch }, page) {
+      commit(CURRENT_PAGE, page);
+      dispatch("fetchMovies");
     },
   },
 };
