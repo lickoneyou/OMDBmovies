@@ -83,6 +83,24 @@ const moviesStore = {
         dispatch("fetchMovies");
       }
     },
+    async searchMovie({ commit, dispatch }, query) {
+      console.log(query);
+      try {
+        dispatch("toggleLoader", true, { root: true });
+
+        const res = await axios.get(`/?s=${query}`);
+        const movies = serializeResponse(res.data.Search);
+        commit(MOVIES, movies);
+
+        if (res.data.Error) {
+          throw new Error(res.data.Error);
+        }
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        dispatch("toggleLoader", false, { root: true });
+      }
+    },
   },
 };
 

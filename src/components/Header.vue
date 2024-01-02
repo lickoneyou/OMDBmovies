@@ -9,6 +9,7 @@
             type="search"
             placeholder="Search"
             aria-label="Search"
+            v-model="searchValue"
           />
         </form>
       </div>
@@ -17,8 +18,28 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "HeaderVue",
+  data() {
+    return {
+      searchValue: "",
+    };
+  },
+  watch: {
+    searchValue: "onSearchValueChanged",
+  },
+  methods: {
+    ...mapActions("movies", ["searchMovie", "fetchMovies"]),
+    onSearchValueChanged(value) {
+      if (value) {
+        this.searchMovie(value);
+      } else {
+        this.fetchMovies();
+      }
+    },
+  },
 };
 </script>
 
