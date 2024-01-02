@@ -45,10 +45,15 @@ export default {
 .pagination {
   display: flex;
   justify-content: center;
-  background-color: transparent;
+  padding: 10px 0 20px 0;
 }
 .page-item {
   cursor: pointer;
   user-select: none;
+}
+
+.page-link {
+  background-color: transparent !important;
+  color: white !important;
 }
 </style>

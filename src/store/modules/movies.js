@@ -32,7 +32,7 @@ const moviesStore = {
       return moviesPerPage;
     },
     moviesLength({ top250IDs }) {
-      return Object.keys(top250IDs).length;
+      return Math.ceil(Object.keys(top250IDs).length / 12);
     },
   },
   mutations: {
