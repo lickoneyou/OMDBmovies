@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <SpinerLoader />
     <PosterBG :poster="posterBG" />
     <movies-list :list="moviesList" @changePoster="onChangePoster" />
     <MoviesPagination :total="moviesLength" @changePage="onChangePage" />
@@ -8,6 +9,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import SpinerLoader from "./components/Loader.vue";
 import MoviesList from "./components/MoviesList.vue";
 import MoviesPagination from "./components/MoviesPagination.vue";
 import PosterBG from "./components/PosterBG.vue";
@@ -18,6 +20,7 @@ export default {
     MoviesList,
     PosterBG,
     MoviesPagination,
+    SpinerLoader,
   },
   data() {
     return {

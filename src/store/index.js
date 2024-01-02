@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import movies from "./modules/movies";
+import loaderStore from "./loader";
 
 const store = createStore({
   state: {},
@@ -8,6 +9,7 @@ const store = createStore({
   actions: {},
   modules: {
     movies,
+    loaderStore,
   },
 });
 
