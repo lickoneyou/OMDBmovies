@@ -13,7 +13,11 @@
           </button>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-outline-light w-100">
+          <button
+            type="button"
+            class="btn btn-outline-light w-100"
+            @click="emitRemoveEvent"
+          >
             Remove
           </button>
         </div>
@@ -36,6 +40,14 @@ export default {
       return {
         "background-image": `url(${this.movie.Poster})`,
       };
+    },
+  },
+  methods: {
+    emitRemoveEvent() {
+      this.$emit("removeItem", {
+        id: this.movie.imdbID,
+        title: this.movie.Title,
+      });
     },
   },
 };

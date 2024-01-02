@@ -4,7 +4,11 @@
     <div class="row">
       <template v-if="isExist">
         <div class="col-3" v-for="(movie, key) in list" :key="key">
-          <movie-item :movie="movie" @mouseover="onMouseOver(movie.Poster)" />
+          <movie-item
+            :movie="movie"
+            @mouseover="onMouseOver(movie.Poster)"
+            @removeItem="onRemoveItem"
+          />
         </div>
       </template>
       <template v-else>
@@ -16,6 +20,7 @@
 
 <script>
 import MovieItem from "./MovieItem.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "MoviesList",
@@ -36,8 +41,16 @@ export default {
     },
   },
   methods: {
+    ...mapActions("movies", ["removeMovie"]),
     onMouseOver(poster) {
       this.$emit("changePoster", poster);
+    },
+    onRemoveItem({ id, title }) {
+      const isConf = confirm(`Do you want to delete the movie: ${title}?`);
+
+      if (isConf) {
+        this.removeMovie(id);
+      }
     },
   },
 };
