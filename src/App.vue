@@ -2,7 +2,8 @@
   <div id="app">
     <SpinerLoader />
     <PosterBG :poster="posterBG" />
-    <movies-list :list="moviesList" @changePoster="onChangePoster" />
+    <HeaderVue />
+    <MoviesList :list="moviesList" @changePoster="onChangePoster" />
     <MoviesPagination :total="moviesLength" @changePage="onChangePage" />
   </div>
 </template>
@@ -13,6 +14,7 @@ import SpinerLoader from "./components/Loader.vue";
 import MoviesList from "./components/MoviesList.vue";
 import MoviesPagination from "./components/MoviesPagination.vue";
 import PosterBG from "./components/PosterBG.vue";
+import HeaderVue from "./components/Header.vue";
 
 export default {
   name: "App",
@@ -21,6 +23,7 @@ export default {
     PosterBG,
     MoviesPagination,
     SpinerLoader,
+    HeaderVue,
   },
   data() {
     return {
