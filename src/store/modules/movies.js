@@ -96,7 +96,12 @@ const moviesStore = {
           throw new Error(res.data.Error);
         }
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
+        dispatch(
+          "showNotify",
+          { varient: "error", msg: "Movie is not found", title: "Error" },
+          { root: true }
+        );
       } finally {
         dispatch("toggleLoader", false, { root: true });
       }

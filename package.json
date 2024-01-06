@@ -14,6 +14,7 @@
     "bootstrap-vue-next": "^0.15.5",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue3-toastify": "^0.2.1",
     "vuejs-paginate-next": "^1.0.2",
     "vuex": "^4.0.0"
   },

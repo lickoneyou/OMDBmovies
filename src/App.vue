@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <SpinerLoader />
+    <NotificationVue />
     <PosterBG :poster="posterBG" />
     <HeaderVue />
     <MoviesList :list="moviesList" @changePoster="onChangePoster" />
@@ -15,6 +16,7 @@ import MoviesList from "./components/MoviesList.vue";
 import MoviesPagination from "./components/MoviesPagination.vue";
 import PosterBG from "./components/PosterBG.vue";
 import HeaderVue from "./components/Header.vue";
+import NotificationVue from "./components/Notification.vue";
 
 export default {
   name: "App",
@@ -24,6 +26,7 @@ export default {
     MoviesPagination,
     SpinerLoader,
     HeaderVue,
+    NotificationVue,
   },
   data() {
     return {

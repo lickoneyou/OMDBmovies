@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import movies from "./modules/movies";
 import loaderStore from "./loader";
+import notificationStore from "./notification";
 
 const store = createStore({
   state: {},
@@ -10,6 +11,7 @@ const store = createStore({
   modules: {
     movies,
     loaderStore,
+    notificationStore,
   },
 });
 
