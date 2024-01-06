@@ -1,4 +1,5 @@
 <template>
+  <ModalWindow :isOpen="isOpened" :movieInfo="info" :key="myKey"></ModalWindow>
   <div class="container">
     <h3 class="listTitle">IMDB Top 250</h3>
     <div class="row">
@@ -8,6 +9,7 @@
             :movie="movie"
             @mouseover="onMouseOver(movie.Poster)"
             @removeItem="onRemoveItem"
+            @showModal="onShowMovieInfo"
           />
         </div>
       </template>
@@ -21,6 +23,7 @@
 <script>
 import MovieItem from "./MovieItem.vue";
 import { mapActions } from "vuex";
+import ModalWindow from "./ModalWindow.vue";
 
 export default {
   name: "MoviesList",
@@ -32,12 +35,24 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      info: "",
+      open: false,
+      myKey: "",
+    };
+  },
   components: {
     MovieItem,
+    ModalWindow,
   },
   computed: {
     isExist() {
       return Boolean(Object.keys(this.list).length);
+    },
+    isOpened() {
+      console.log(this.open);
+      return this.open;
     },
   },
   methods: {
@@ -57,6 +72,12 @@ export default {
           title: "Succses",
         });
       }
+    },
+    onShowMovieInfo(id) {
+      this.open = true;
+      this.info = this.list[id];
+      this.myKey = Math.random();
+      console.log(this.info);
     },
   },
 };

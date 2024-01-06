@@ -8,8 +8,12 @@
       </div>
       <div class="movieItemControls row no-gutters">
         <div class="col">
-          <button type="button" class="btn btn-outline-light w-100">
-            Edit
+          <button
+            type="button"
+            class="btn btn-outline-light w-100"
+            @click="showInfoModalEvent"
+          >
+            Info
           </button>
         </div>
         <div class="col">
@@ -29,6 +33,7 @@
 <script>
 export default {
   name: "MovieItem",
+
   props: {
     movie: {
       type: Object,
@@ -48,6 +53,9 @@ export default {
         id: this.movie.imdbID,
         title: this.movie.Title,
       });
+    },
+    showInfoModalEvent() {
+      this.$emit("showModal", this.movie.imdbID);
     },
   },
 };
