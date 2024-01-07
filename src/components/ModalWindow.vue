@@ -2,7 +2,7 @@
   <div class="movie-info-wrap container-sm" v-if="checkWindow">
     <header class="movie-info-header">
       <h6 class="movie-header-title">Movie view</h6>
-      <i class="bi bi-x-lg" @click="closeWindow"></i>
+      <i class="bi bi-x-lg closeBtn" @click="closeWindow"></i>
     </header>
     <div class="movie-info-content">
       <div class="row">
@@ -13,7 +13,6 @@
         </div>
         <div class="col-md-8">
           <h3 class="movie-title">{{ movieInfo.Title }}</h3>
-          <i class="bi bi-star-fill"></i>
           <b v-for="item in createStars" :key="item" :class="item"></b>
           <p class="movie-description">{{ movieInfo.Plot }}</p>
           <div class="mt-3 mb-4">
@@ -186,5 +185,25 @@ export default {
 .close-icon {
   font-size: 24px;
   cursor: pointer;
+}
+
+.bi {
+  color: yellow;
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.closeBtn {
+  color: white;
+  transition: all 200ms ease;
+}
+
+.closeBtn:hover {
+  color: red;
+}
+
+.badge {
+  font-size: 15px;
+  margin-right: 10px;
 }
 </style>
