@@ -1,24 +1,8 @@
-# omdbmovies
+## omdbMovies
 
-## Project setup
-```
-npm install
-```
+GitHub: https://github.com/lickoneyou/OMDBmovies
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Deploy: https://lickoneyou.github.io/OMDBmovies/
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![omdbMovies](https://lickoneyou.github.io/CV/images/projects/omdbMovie.png)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
